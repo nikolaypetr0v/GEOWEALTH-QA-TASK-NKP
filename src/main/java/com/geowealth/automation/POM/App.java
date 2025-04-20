@@ -1,4 +1,4 @@
-package org.geowealth.automation.task;
+package com.geowealth.automation.POM;
 
 /**
  * Hello world!

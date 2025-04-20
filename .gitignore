@@ -13,7 +13,7 @@ target/
 *.iml
 *.ipr
 
-### UNIX OS ###
+### IntelliJ IDEA - UNIX OS ###
 \.idea\
 \skilloAutomation13.iml
 \out\*

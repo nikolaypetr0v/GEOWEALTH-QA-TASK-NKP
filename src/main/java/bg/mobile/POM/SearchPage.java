@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class SearchPage extends BasePage {
     //const
     public static final String SEARCH_PAGE_URL = "https://www.mobile.bg/search/avtomobili-dzhipove";
@@ -30,6 +32,12 @@ public class SearchPage extends BasePage {
     private WebElement totalNumberOfAdsFound;
     @FindBy (xpath = "//div[@id = \"akSearchModeli\"]/a[@class = \"addButton\"]")
     private WebElement carModelOKButton;
+    @FindBy (xpath = "//img[contains(@src, \"TOP-wrap.svg\")]")
+    private List<WebElement> TOPAds;
+    @FindBy (xpath = "//img[contains(@src, \"VIP-wrap.svg\")]")
+    private List<WebElement> VIPAds;
+    @FindBy (xpath = "//a[text() = \"2\"]")
+    private WebElement adsSearchResult2ndPageBtn;
 
     public SearchPage (WebDriver driver, Logger log)  {
         super(driver,log);
@@ -53,7 +61,19 @@ public class SearchPage extends BasePage {
     }
 
     public void showTotalNumberOfVWGolfAds () {
-        log.info("The result of the VW Golf search is: " + totalNumberOfAdsFound.getText());
+        log.info("STEP 14: The result of the VW Golf 4x4 search is: " + totalNumberOfAdsFound.getText());
+    }
+
+    public int countTOPAdsOnPage () {
+        return TOPAds.size();
+    }
+
+    public int countVIPAdsOnPage () {
+        return VIPAds.size();
+    }
+
+    public void clickOnAdsSearchResultSecondPage() {
+        waitAndClickOnWebElement(adsSearchResult2ndPageBtn);
     }
 
     public void typeInCarBrandInDropdown (String carBrandName) {

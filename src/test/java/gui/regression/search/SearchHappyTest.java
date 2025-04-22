@@ -72,5 +72,13 @@ public class SearchHappyTest extends BaseTest {
 
         searchPage.showTotalNumberOfVWGolfAds();
         sleepy(WAIT);
+
+        log.info("STEP 15: The number of TOP VW Golf 4x4 Ads is " + searchPage.countTOPAdsOnPage());
+        int totalNumberOfVIPAds = searchPage.countVIPAdsOnPage();
+        searchPage.clickOnAdsSearchResultSecondPage();
+        sleepy(WAIT);
+
+        totalNumberOfVIPAds = totalNumberOfVIPAds + searchPage.countVIPAdsOnPage();
+        log.info("STEP 16: The number of VIP VW Golf 4x4 Ads is " + totalNumberOfVIPAds);
     }
 }

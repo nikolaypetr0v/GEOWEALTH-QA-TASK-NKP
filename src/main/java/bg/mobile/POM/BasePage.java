@@ -39,14 +39,14 @@ public class BasePage {
     }
 
     public void navigateTo(String pageURLSuffix){
-        String currentURL = BASE_URL + pageURLSuffix; //for better debug
+        String currentURL = BASE_URL + pageURLSuffix;
         driver.get(currentURL);
         log.info("CONFIRM # The user has navigated to : " + currentURL);
         waitPageTobeFullLoaded();
     }
 
     public void navigateToBaseURL(){
-        String currentURL = BASE_URL; //for better debug
+        String currentURL = BASE_URL;
         driver.get(currentURL);
         log.info("CONFIRM # The user has navigated to : " + currentURL);
         waitPageTobeFullLoaded();
